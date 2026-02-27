@@ -10,6 +10,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*", "migrations/**/*"],
+  "include": ["src/**/*", "db/migrations/**/*"],
   "exclude": ["node_modules"]
 }

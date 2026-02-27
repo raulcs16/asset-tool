@@ -13,12 +13,12 @@ db-up:
 db-halt:
 	cd ./vagrant; vagrant halt
 migration:
-	node-pg-migrate create $(m)
+	node-pg-migrate create $(m) --migrations-dir db/migrations --migration-file-language sql
 migrate-up:
-	DATABASE_URL=$(DB_URL) npx node-pg-migrate up
+	DATABASE_URL=$(DB_URL) npx node-pg-migrate up --migrations-dir db/migrations
 migrate-down:
-	DATABASE_URL=$(DB_URL) npx node-pg-migrate down
+	DATABASE_URL=$(DB_URL) npx node-pg-migrate down --migrations-dir db/migrations
 dev:
-	ts-node src/index.ts
+	npx tsx src/index.ts
 test:
 	jest
