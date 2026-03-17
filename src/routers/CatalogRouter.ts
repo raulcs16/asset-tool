@@ -1,16 +1,15 @@
-import { Router, Request, Response } from "express";
-import PGPool from "../PGPool.js";
+import { Router } from "express";
+import CatalogController from "../controllers/CatalogController.js";
 
 export default class CatalogRouter {
-  private pgPool: PGPool;
   private router: Router = Router();
-  constructor(pool: PGPool) {
-    this.pgPool = pool;
+  private catalogContrll: CatalogController;
+
+  constructor(catalogController: CatalogController) {
+    this.catalogContrll = catalogController;
   }
   public routes(): Router {
-    this.router.get("/books", (req: Request, res: Response) => {
-      res.status(200).json({ books: "empty" });
-    });
+    this.router.get("/books", this.catalogContrll.getBooks);
     return this.router;
   }
 }
