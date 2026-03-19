@@ -1,6 +1,6 @@
 import { createContainer } from "./container.js";
 import PGPool from "./PGPool.js";
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -16,7 +16,8 @@ export const initializeApp = async () => {
   const app = express();
 
   app.use(express.json());
-  app.use("/api/catalog", container.catalogRouter.routes());
+  app.use("/catalog", container.catalogRouter.routes());
+  app.use("/", (req: Request, res: Response) => res.json({ status: 200 }));
 
   return app;
 };

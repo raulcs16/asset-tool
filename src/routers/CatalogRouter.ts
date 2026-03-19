@@ -10,6 +10,7 @@ export default class CatalogRouter {
   }
   public routes(): Router {
     this.router.get("/books", this.catalogContrll.getBooks);
+    this.router.get("/books/:id");
     return this.router;
   }
 }

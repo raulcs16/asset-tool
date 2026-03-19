@@ -43,7 +43,10 @@ export default class PGPool {
     return this.pool.end();
   }
 
-  public async query(sql: string): Promise<QueryResult<any>> {
-    return this.pool.query(sql);
+  public async query(
+    sql: string,
+    params: string[] | any
+  ): Promise<QueryResult<any>> {
+    return this.pool.query(sql, params);
   }
 }
