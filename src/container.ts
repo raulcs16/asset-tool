@@ -1,5 +1,5 @@
 import CatalogController from "./controllers/CatalogController.js";
-import PGPool from "./PGPool.js";
+import PGPool from "./database/PGPool.js";
 import CatalogRepo from "./repos/CatalogRepo.js";
 import CatalogRouter from "./routers/CatalogRouter.js";
 import CatalogService from "./services/CatalogService.js";

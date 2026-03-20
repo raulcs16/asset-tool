@@ -1,5 +1,5 @@
 import { createContainer } from "./container.js";
-import PGPool from "./PGPool.js";
+import PGPool from "./database/PGPool.js";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 dotenv.config();

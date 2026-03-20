@@ -1,5 +1,5 @@
 import { BookDetailsDTO } from "../models/Catalog.js";
-import PGPool from "../PGPool.js";
+import PGPool from "../database/PGPool.js";
 
 export default class CatalogRepo {
   private dbPool: PGPool;
