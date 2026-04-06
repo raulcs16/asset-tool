@@ -2,8 +2,6 @@ import PGPool from "./PGPool.js";
 import { SchemaManager } from "./SchemaManager.js";
 import runMigrations from "./migrator.js";
 import { randomBytes } from "crypto";
-import dotenv from "dotenv";
-dotenv.config();
 
 export default class Context {
   private roleName: string;

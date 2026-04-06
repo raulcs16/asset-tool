@@ -19,6 +19,7 @@ export type BookAuthorRow = {
   authorId: number;
 };
 
+
 export type BookDetailsDTO = {
   id: number;
   title: string;

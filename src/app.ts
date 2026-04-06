@@ -5,14 +5,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const initializeApp = async () => {
-  const pool = new PGPool(
-    process.env.DB_HOST,
-    parseInt(process.env.DB_PORT || "5432"),
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASS
-  );
-  const container = await createContainer(pool);
+  const adminPool = PGPool.fromEnv();
+  const container = await createContainer(adminPool);
   const app = express();
 
   app.use(express.json());

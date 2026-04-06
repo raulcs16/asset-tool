@@ -1,7 +1,5 @@
 import { runner } from "node-pg-migrate";
 import path from "path";
-import dotenv from "dotenv";
-dotenv.config();
 
 const runMigrations = async (
   user: string,

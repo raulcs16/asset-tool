@@ -7,11 +7,13 @@ export $(SHELL sed 's/=.*//' .env)
 DB_URL=postgres://$(DB_USER):$(DB_PASS)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)
 
 db-provision:
-	cd ./vagrant; vagrant halt; vagrant up --provision
+	cd ~/vms/postgres; vagrant halt; vagrant up --provision
+db-create: db-up
+	cd ~/vms/postgres; vagrant ssh -c 'PGPASSWORD=$(DB_PASS) psql -h $(DB_HOST) -U $(DB_USER) -d postgres -c "CREATE DATABASE $(DB_NAME);"'
 db-up:
-	cd ./vagrant; vagrant up
+	cd ~/vms/postgres; vagrant up
 db-halt:
-	cd ./vagrant; vagrant halt
+	cd ~/vms/postgres; vagrant halt
 migration:
 	node-pg-migrate create $(m) --migrations-dir db/migrations --migration-file-language sql
 migrate-up:
